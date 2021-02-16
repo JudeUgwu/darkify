@@ -1,9 +1,9 @@
 <?php
 
-define("APP_NAME","Toozo");
+define("APP_NAME","Dadyo");
 
 // application path
-define("APP_PATH","http://localhost/darkify");
+define("APP_PATH","http://localhost/darkify/");
 define("IMAGE_PATH","http://localhost/darkify/assets/images/");
 define("CSS_PATH","http://localhost/darkify/assets/css/");
 define("JAVASCRIPT_PATH","http://localhost/darkify/assets/js/");

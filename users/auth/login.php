@@ -1,6 +1,49 @@
 <?php 
-
+ require_once "../../DB.php";
  require_once "../../config.php";
+ require_once "../../controllers/functions.php";
+ require_once "../../controllers/helpers.php";
+
+ if(!empty($_SESSION["customer_id"])){
+  $redirectTo = APP_PATH."users/index.php";
+  header("Location: $redirectTo");
+  exit();
+}
+
+  if(!empty($_POST["login"])){
+    $errors = $formData = [];
+    extract($_POST);
+
+    if(!empty($email)){
+      $formData["email"] = sanitize($email,"lower");
+    }else{
+      $errors["error"] = "Invalid Login Detail";
+    }
+
+    if(!empty($password)){
+      $password = sanitize($password);
+      $formData["password"] = sha1($password);
+    }else{
+      $errors["error"] = "Invalid Login Detail";
+    }
+
+    if(empty($errors)){
+      extract($formData);
+      $result  = selectSingleData("users","*","`email`='$email' AND `password`='$password'");
+      if(!empty($result)){
+          $_SESSION["customer_id"] = $result["id"];
+          $_SESSION["customer_email"] = $result["email"];
+          $_SESSION["customer_firstname"] = $result["firstname"];
+          $_SESSION["customer_lastname"] = $result["lastname"];
+          $redirectTo = APP_PATH."users/index.php";
+          header("Location: $redirectTo");
+          exit();
+      }else{
+      $errors["error"] = "Invalid Login Detail";
+      }
+    }
+  }
+
 ?>
 
 
@@ -24,26 +67,30 @@
                     <h3 class="text-center font-weight-light my-4">Login</h3>
                   </div>
                   <div class="card-body">
-                    <form>
+                    <form action="<?=$_SERVER["PHP_SELF"]?>" method="POST">
+                       <?php if(!empty($errors["error"])){?>
+                         <p class="text-center text-danger"><?=$errors["error"]?></p>
+                       <?php } ?>
+
                       <div class="form-group">
                         <label class="small mb-1" for="inputEmailAddress">Email</label>
-                        <input class="form-control py-4" id="inputEmailAddress" type="email"
+                        <input required name="email" class="form-control py-4" id="inputEmailAddress" type="email"
                           placeholder="Enter email address" />
                       </div>
                       <div class="form-group">
                         <label class="small mb-1" for="inputPassword">Password</label>
-                        <input class="form-control py-4" id="inputPassword" type="password"
+                        <input required name="password" class="form-control py-4" id="inputPassword" type="password"
                           placeholder="Enter password" />
                       </div>
                       <div class="form-group">
                         <div class="custom-control custom-checkbox">
-                          <input class="custom-control-input" id="rememberPasswordCheck" type="checkbox" />
+                          <input  name="rem" class="custom-control-input" id="rememberPasswordCheck" type="checkbox" />
                           <label class="custom-control-label" for="rememberPasswordCheck">Remember password</label>
                         </div>
                       </div>
                       <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
-                        <a class="small" href="password.html">Forgot Password?</a>
-                        <a class="btn btn-primary" href="index.html">Login</a>
+                        <button type="submit" name="login" value="login" class="btn btn-primary" >Login</button>
+                        <a  href="index.html">Forgot password ?</a>
                       </div>
                     </form>
                   </div>

@@ -15,9 +15,12 @@
 						</div>
 						<div class="col-4">
 							<div class="site-branding text-center">
-								<a href="index.html">
-									<img src="assets/images/logo/logo.png" alt="Site Logo" />
-								</a>
+
+							<h1>								<a href="<?=APP_PATH?>">
+								   <?=APP_NAME?>
+									<!-- <img src="assets/images/logo/logo.png" alt="Site Logo" /> -->
+								</a></h1>
+
 							</div><!-- /.site-branding -->
 						</div>
 						<div class="col-4">

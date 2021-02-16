@@ -1,5 +1,15 @@
 
-<?php require_once "../config.php"; ?>
+<?php 
+ require_once "../DB.php";
+require_once "../config.php";
+
+if(empty($_SESSION["customer_id"])){
+    $redirectTo = APP_PATH."users/auth/login.php";
+    header("Location: $redirectTo");
+    exit();
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +30,7 @@
                     <div class="container-fluid">
                         <h1 class="mt-4">Dashboard</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Dashboard</li>
+                            <li class="breadcrumb-item active">Welcome <?=$_SESSION["customer_firstname"]?> <?=$_SESSION["customer_lastname"]?></li>
                         </ol>
 
 
