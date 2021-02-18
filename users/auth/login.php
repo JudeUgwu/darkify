@@ -90,12 +90,12 @@
                       </div>
                       <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
                         <button type="submit" name="login" value="login" class="btn btn-primary" >Login</button>
-                        <a  href="index.html">Forgot password ?</a>
+                        <a  href="<?=APP_PATH?>users/auth/forgot-password.php">Forgot password ?</a>
                       </div>
                     </form>
                   </div>
                   <div class="card-footer text-center">
-                    <div class="small"><a href="register.html">Need an account? Sign up!</a></div>
+                    <div class="small"><a href="<?=APP_PATH?>users/auth/register.php">Need an account? Sign up!</a></div>
                   </div>
                 </div>
               </div>
