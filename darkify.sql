@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2021 at 11:46 AM
+-- Generation Time: Feb 19, 2021 at 01:18 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.1
 
@@ -111,6 +111,7 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `email` varchar(200) NOT NULL,
   `firstname` varchar(200) NOT NULL,
+  `bio` text DEFAULT NULL,
   `lastname` varchar(200) NOT NULL,
   `image` varchar(200) NOT NULL,
   `password` varchar(200) NOT NULL,
@@ -123,10 +124,10 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `firstname`, `lastname`, `image`, `password`, `created_at`, `updated_at`, `status`) VALUES
-(1, 'judeugwu9@gmail.com', 'jude', 'somto', '', 'e5e9fa1ba31ecd1ae84f75caaa474f3a663f05f4', '2021-02-16 09:17:20', '2021-02-16 09:17:20', 0),
-(2, 'judeugwu9@gmail.com', 'mike', 'somto', '', 'e5e9fa1ba31ecd1ae84f75caaa474f3a663f05f4', '2021-02-16 09:34:11', '2021-02-16 09:34:11', 0),
-(3, 'judeugwu19@gmail.com', 'bobby', 'somto', '', 'e5e9fa1ba31ecd1ae84f75caaa474f3a663f05f4', '2021-02-16 09:49:28', '2021-02-16 09:49:28', 0);
+INSERT INTO `users` (`id`, `email`, `firstname`, `bio`, `lastname`, `image`, `password`, `created_at`, `updated_at`, `status`) VALUES
+(1, 'judeugwu9@gmail.com', 'jude', 'I don tire for nigeria', 'somto', 'https://mindbodygreen-res.cloudinary.com/images/c_fill,g_auto,w_78,h_78,q_auto,f_auto,fl_lossy/usr/RetocQT/sarah-fielding.jpg', 'e5e9fa1ba31ecd1ae84f75caaa474f3a663f05f4', '2021-02-16 09:17:20', '2021-02-16 09:17:20', 0),
+(2, 'judeugwu9@gmail.com', 'mike', 'I am a family man', 'somto', 'https://mindbodygreen-res.cloudinary.com/images/c_fill,g_auto,w_78,h_78,q_auto,f_auto,fl_lossy/usr/RetocQT/sarah-fielding.jpg', 'e5e9fa1ba31ecd1ae84f75caaa474f3a663f05f4', '2021-02-16 09:34:11', '2021-02-16 09:34:11', 0),
+(3, 'judeugwu19@gmail.com', 'bobby', 'I am a software developer and tutor', 'somto', 'https://mindbodygreen-res.cloudinary.com/images/c_fill,g_auto,w_78,h_78,q_auto,f_auto,fl_lossy/usr/RetocQT/sarah-fielding.jpg', 'e5e9fa1ba31ecd1ae84f75caaa474f3a663f05f4', '2021-02-16 09:49:28', '2021-02-16 09:49:28', 0);
 
 --
 -- Indexes for dumped tables
