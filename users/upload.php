@@ -1,4 +1,15 @@
-<?php require_once "../config.php"; ?>
+<?php 
+ require_once "../DB.php";
+ require_once "../config.php";
+ 
+ if(empty($_SESSION["customer_id"])){
+     $redirectTo = APP_PATH."users/auth/login.php";
+     header("Location: $redirectTo");
+     exit();
+ }
+ 
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">

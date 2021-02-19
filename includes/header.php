@@ -5,12 +5,7 @@
 						<div class="col-4">
 							<div class="intro-socail-share">
 								<div class="share-alt"><span class="fa fa-share-alt"></span></div>
-								<div class="socail-share">
-									<a href="#"><span class="fab fa-facebook-f"></span></a>
-									<a href="#"><span class="fab fa-twitter"></span></a>
-									<a href="#"><span class="fab fa-instagram"></span></a>
-									<a href="#"><span class="fab fa-pinterest-p "></span></a>
-								</div>
+
 							</div><!-- /.intro-socail-share -->
 						</div>
 						<div class="col-4">
@@ -37,12 +32,7 @@
 									</div>
 								</div>
 								<!--~./ search-wrap ~-->
-								<div class="header-card-area">
-									<a href="#">
-										<span class="fas fa-shopping-cart"></span>
-										<sup>2</sup>
-									</a>
-								</div>
+
 								<!--~./ header card area ~-->
 
 								<div class="hamburger-menus">
@@ -66,82 +56,18 @@
 										<div class="menu-content">
 											<ul class="mainmenu">
 												<li class="megamenu">
-													<a class="active" href="#">Home</a>
-													<ul class="sub-menu megamenu-main">
-														<li>
-															<div class="megamenu-wrapper">
-																<div class="container megamenu-container">
-																	<div class="row">
-																		<div class="col-lg-3 megamenu-column">
-																			<div class="megamenu-column-inner">
-																				<h3 class="megamenu-heading">Home Group
-																				</h3>
-																				<ul class="custom-megamenu">
-																					<li><a href="index.html">Home
-																							One</a></li>
-																					<li><a href="index02.html">Home
-																							Two</a></li>
-																					<li><a href="index03.html">Home
-																							Three</a></li>
-																					<li><a href="index04.html">Home
-																							Four</a></li>
-																				</ul>
-																			</div>
-																		</div>
-																		<div class="col-lg-3 megamenu-column">
-																			<div class="megamenu-column-inner">
-																				<h3 class="megamenu-heading">Home Group
-																				</h3>
-																				<ul class="custom-megamenu">
-																					<li><a href="index05.html">Home
-																							Five</a></li>
-																					<li><a href="index06.html">Home
-																							Six</a></li>
-																					<li><a href="index07.html">Home
-																							Seven</a></li>
-																					<li><a href="index08.html">Home
-																							Eight</a></li>
-																				</ul>
-																			</div>
-																		</div>
-																		<div class="col-lg-3 megamenu-column">
-																			<div class="megamenu-column-inner">
-																				<h3 class="megamenu-heading">Home Group
-																				</h3>
-																				<ul class="custom-megamenu">
-																					<li><a href="index09.html">Home
-																							Nine</a></li>
-																					<li><a href="index10.html">Home Ten</a></li>
-																					<li><a href="index11.html">Home
-																							Eleven</a></li>
-																					<li><a href="index12.html">Home
-																							Twelve</a></li>
-																				</ul>
-																			</div>
-																		</div>
-																		<div class="col-lg-3 megamenu-column">
-																			<div class="megamenu-column-inner">
-																				<h3 class="megamenu-heading">Single Pages
-																				</h3>
-																				<ul class="custom-megamenu">
-																					<li><a href="single-post.html">Single Post One</a></li>
-																					<li><a href="single-post-two.html">Single Post Two</a></li>
-																					<li><a href="single-post-three.html">Single Post Three</a></li>
-																					<li><a href="single-post-four.html">Single Post Four</a></li>
-																					<li><a href="single-post-five.html">Single Post Five</a></li>
-																				</ul>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</li>
-													</ul>
+													<a class="<?php if(!empty($active) && $active == "home"){ echo 'active';}?>" href="<?=APP_PATH?>">Home</a>
+
 												</li>
-												<li><a href="#">Features</a></li>
-												<li><a href="gallery.html">Photo Stories</a></li>
-												<li><a href="about.html">About Me</a></li>
-												<li><a href="contact.html">contact</a></li>
+												<li><a class="<?php if(!empty($active) && $active == "about"){ echo 'active';}?>" href="<?=APP_PATH?>about.php">About</a></li>
+												<li><a href="mailto:<?=APP_EMAIL?>">Contact Us</a></li>
+												<?php if(empty($_SESSION["customer_id"])){ ?>
+												<li><a href="<?=DASHBOARD_PATH?>auth/register.php">Register</a></li>
+												<li><a href="<?=DASHBOARD_PATH?>auth/login.php">Login</a></li>
+												<?php }else{ ?>
+												<li><a href="<?=DASHBOARD_PATH?>">Dashboard</a></li>
+												<?php  } ?>
+
 											</ul> <!-- /.menu-list -->
 										</div> <!-- /.hours-content-->
 									</div><!-- /.menu-wrapper -->

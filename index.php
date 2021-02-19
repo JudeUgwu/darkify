@@ -6,6 +6,9 @@
 
 	$posts = selectMultipleData("article","*","");
 	$trending = selectMultipleData("article","*","`views`>'10'");
+	$categories = selectMultipleData("category","*");
+
+	$active = "home";
 	
 
 
@@ -18,6 +21,7 @@
 <html lang="en">
 <head>
 	  <?php require_once "includes/css.php"; ?>
+		<title><?=APP_NAME?></title>
 </head>
 
 <body class="bg-white-smoke">
@@ -52,7 +56,7 @@
 							<article class="post hentry post-slider-one text-center">
 								<div class="entry-thumb">
 									<figure class="thumb-wrap">
-										<a href="single-post.html">
+										<a href="single-post.php?id=<?=$post->id?>">
 											<img src="<?=$post->image?>" alt="post" />
 										</a>
 									</figure>
@@ -62,12 +66,12 @@
 								<div class="content-entry-wrap">
 									<!--./ entry-category -->
 									<h3 class="entry-title">
-										<a href="single-post.html"><?=$post->title?></a>
+										<a href="single-post.php?id=<?=$post->id?>"><?=$post->title?></a>
 									</h3>
 									<!--./ entry-title -->
 									<div class="entry-content">
 										<div class="read-more-wrap">
-											<a class="read-more" href="single-post.html">Read Details</a>
+											<a class="read-more" href="single-post.php?id=<?=$post->id?>">Read Details</a>
 										</div>
 									</div>
 									<!--./ entry-content -->
@@ -197,7 +201,7 @@
 									<article class="post hentry post-grid text-center style-one">
 										<div class="entry-thumb">
 											<figure class="thumb-wrap">
-												<a href="single-post.html">
+												<a href="single-post.php?id=<?=$post->id?>">
 													<img src="<?=$post->image?>" alt="post" />
 												</a>
 											</figure>
@@ -207,7 +211,7 @@
 										<div class="content-entry-wrap">
 											<!--./ entry-category -->
 											<h3 class="entry-title">
-												<a href="single-post.html"><?=$post->title?></a>
+												<a href="single-post.php?id=<?=$post->id?>"><?=$post->title?></a>
 											</h3>
 											<!--./ entry-title -->
 											<div class="entry-meta-content">
@@ -223,7 +227,7 @@
 											</div>
 											<!--./ entry-meta-content -->
 											<div class="read-more-wrap">
-												<a class="read-more" href="single-post.html">Read Details</a>
+												<a class="read-more" href="single-post.php?id=<?=$post->id?>">Read Details</a>
 											</div>
 											<!--./ entry-content -->
 										</div>

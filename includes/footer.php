@@ -12,14 +12,13 @@
 								<div class="widget-content">
 									<div class="info-box">
 										<p>
-											Dannmondi 15 number Sheen Darus Salam. 112/B Road 8A,
-											Dhanmondi.
+											<?=ucwords(APP_ADDRESS);?>
 										</p>
 									</div>
 									<div class="info-box">
-										<p>+880-036987458765521</p>
+										<p><?=ucwords(APP_PHONE)?></p>
 										<p>
-											<a href="mailto:information@gmail.com">information@gmail.com</a>
+											<a href="mailto:<?=APP_EMAIL?>"><?=APP_EMAIL?></a>
 										</p>
 									</div>
 								</div>
@@ -35,53 +34,16 @@
 									<ul>
 										<li><a href="#">About Us</a></li>
 										<li><a href="#">Contact Us</a></li>
-										<li><a href="#">Careers</a></li>
-										<li><a href="#">Services</a></li>
-										<li><a href="#">Stories</a></li>
-									</ul>
-								</div>
-							</aside>
-						</div>
-						<!--~./ end links widget ~-->
-						<!--~~~~~ Start Widget Links ~~~~~-->
-						<div class="col-lg-2 col-md-6">
-							<aside class="widget widget_links">
-								<h2 class="widget-title">Categories</h2>
-								<div class="widget-content">
-									<ul>
-										<li><a href="#">Lifestyle</a></li>
-										<li><a href="#">Travel</a></li>
-										<li><a href="#">Food & Drinks</a></li>
-										<li><a href="#">Inspiration</a></li>
-										<li><a href="#">Decoration</a></li>
+										<li><a href="#">Login</a></li>
+										<li><a href="#">Register</a></li>
 									</ul>
 								</div>
 							</aside>
 						</div>
 						<!--~./ end links widget ~-->
 
-						<!--~~~~~ Start Subscribe Widget~~~~~-->
-						<div class="col-lg-4 col-md-6">
-							<aside class="widget tb-subscribe-widget">
-								<h4 class="widget-title">Our Monthly Newsletter</h4>
-								<div class="widget-content">
-									<p>
-										Sign Up TO Get Updates On Articles, Interviews And Events.
-									</p>
-									<div class="subscribe-form">
-										<!-- Subscribe form -->
-										<form class="dv-form" id="mc-form">
-											<div class="form-group">
-												<input id="mc-email" name="EMAIL" placeholder="YOUR EMAIL" type="email" />
-												<button class="btn btn-default" name="Subscribe" id="subscribe-btn" type="submit">
-													Sign Up
-												</button>
-											</div>
-										</form>
-									</div>
-								</div>
-							</aside>
-						</div>
+
+
 						<!--~./ end subscribe widget ~-->
 					</div>
 				</div>
@@ -98,8 +60,8 @@
 							<div class="footer-bottom-content">
 								<div class="copyright-text text-center">
 									<p>
-										Copyright - 2021 EasyArt theme by
-										<a href="#">HTMLguru</a>
+										Copyright - <?=date("Y")?> 
+										<a href="<?=APP_PATH?>"><?=APP_NAME?></a>
 									</p>
 								</div>
 								<!--~./ end copyright text ~-->

@@ -1,6 +1,12 @@
 <?php
 
 define("APP_NAME","Dadyo");
+define("APP_EMAIL","support@dadyo.com");
+define("APP_ADDRESS","19 New York Wall Street");
+define("APP_PHONE","+91 434 456 099");
+
+
+
 
 // application path
 define("APP_PATH","http://localhost/darkify/");

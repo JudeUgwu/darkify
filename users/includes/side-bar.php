@@ -16,9 +16,9 @@
           <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
           POSTS
         </a>
-        <a class="nav-link" href="<?=DASHBOARD_PATH?>customers.php">
+        <a class="nav-link" href="<?=DASHBOARD_PATH?>upload.php">
           <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-          CUSTOMERS
+          UPLOAD
         </a>
         <a class="nav-link" href="<?=DASHBOARD_PATH?>profile.php">
           <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
@@ -28,7 +28,7 @@
     </div>
     <div class="sb-sidenav-footer">
       <div class="small">Logged in as:</div>
-      Start Bootstrap
+      <?=$_SESSION["customer_firstname"]?>  <?=$_SESSION["customer_lastname"]?>
     </div>
   </nav>
 </div>
