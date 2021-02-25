@@ -10,6 +10,8 @@ if(empty($_SESSION["customer_id"])){
     exit();
 }
 
+
+
 ?>
 
 <!DOCTYPE html>

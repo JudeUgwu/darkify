@@ -33,10 +33,11 @@ function selectSingleData($tableName,$colums = "*",$where = ""){
 }
 
 
-function selectMultipleData($tableName,$colums = "*", $where = ""){
+function selectMultipleData($tableName,$colums = "*", $where = "",$orderBy = "",$order = "DESC",$limit = ''){
   global $conn;
   $where = !empty($where) ? " WHERE ".$where : $where;
-  $sql = "SELECT $colums FROM $tableName $where";
+  $orderBy = !empty($orderBy) ? " ORDER BY ".$orderBy." $order" : $orderBy;
+  $sql = "SELECT $colums FROM $tableName $where  $orderBy $limit";
   $result = $conn->query($sql);
   if($result->num_rows > 0){
     $data = [];
@@ -47,4 +48,22 @@ function selectMultipleData($tableName,$colums = "*", $where = ""){
   }else{
     return [];
   }
+}
+
+
+
+/**
+ * @desc This function is used to radd a [post]
+ */
+function addPost($data){
+  extract($data);
+  global $conn;
+  $sql = "INSERT INTO article(`title`,`content`,`image`,`user_id`) VALUES('$title','$content','$image','$user_id')";
+  $result = $conn->query($sql);
+  if($result){
+    return true;
+  }else{
+    return false;
+  }
+
 }

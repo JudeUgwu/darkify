@@ -64,7 +64,7 @@
 							<div class="entry-header-outer">
 								<div class="entry-header">
 									<!--./ entry-category -->
-									<h3 class="entry-title"><?=$post->title?>
+									<h3 class="entry-title"><?=ucwords(html_entity_decode($post->title,ENT_QUOTES))?>
 									</h3>
 									<!--./ entry-title -->
 									<div class="entry-meta-content">
@@ -86,7 +86,7 @@
 							<div class="entry-content">
 
                   <p>
-										<?=$post->content?>
+										<?=html_entity_decode($post->content,ENT_QUOTES)?>
 									</p>
 
 							</div><!--  /.entry-content -->

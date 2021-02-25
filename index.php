@@ -4,7 +4,7 @@
   require_once "controllers/functions.php";
   require_once "controllers/helpers.php";
 
-	$posts = selectMultipleData("article","*","");
+	$posts = selectMultipleData("article","*","","created_at","DESC");
 	$trending = selectMultipleData("article","*","`views`>'10'");
 	$categories = selectMultipleData("category","*");
 
@@ -66,7 +66,7 @@
 								<div class="content-entry-wrap">
 									<!--./ entry-category -->
 									<h3 class="entry-title">
-										<a href="single-post.php?id=<?=$post->id?>"><?=$post->title?></a>
+										<a href="single-post.php?id=<?=$post->id?>"><?=ucwords($post->title)?></a>
 									</h3>
 									<!--./ entry-title -->
 									<div class="entry-content">
@@ -211,7 +211,7 @@
 										<div class="content-entry-wrap">
 											<!--./ entry-category -->
 											<h3 class="entry-title">
-												<a href="single-post.php?id=<?=$post->id?>"><?=$post->title?></a>
+												<a href="single-post.php?id=<?=$post->id?>"><?=ucwords($post->title)?></a>
 											</h3>
 											<!--./ entry-title -->
 											<div class="entry-meta-content">
@@ -221,7 +221,7 @@
 												</div>
 												<!--./ entry-date -->
 												<div class="entry-date">
-													On <span class="text-info"><?=date(" D m , Y",strtotime($post->created_at))?></span>
+													On <span class="text-info"><?=date(" d M , Y",strtotime($post->created_at))?></span>
 												</div>
 												<!--./ entry-date -->
 											</div>
