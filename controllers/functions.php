@@ -55,15 +55,38 @@ function selectMultipleData($tableName,$colums = "*", $where = "",$orderBy = "",
 /**
  * @desc This function is used to radd a [post]
  */
-function addPost($data){
+function addPost($data)
+{
+    extract($data);
+    global $conn;
+    $sql = "INSERT INTO article(`title`,`content`,`image`,`user_id`) VALUES('$title','$content','$image','$user_id')";
+    $result = $conn->query($sql);
+    if ($result) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+  
+  /**
+ * @desc This function is used to radd a [post]
+ */
+function updatePost($data)
+{
   extract($data);
   global $conn;
-  $sql = "INSERT INTO article(`title`,`content`,`image`,`user_id`) VALUES('$title','$content','$image','$user_id')";
-  $result = $conn->query($sql);
-  if($result){
+   $sql = "UPDATE article SET `title` = '$title' , `content`='$content' , `image` = '$image' WHERE `id`='$id'";
+   $result = $conn->query($sql);
+   if($result){
     return true;
   }else{
     return false;
   }
-
 }
+
+
+
+
+ 
+ 

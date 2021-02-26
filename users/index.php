@@ -1,13 +1,17 @@
 
 <?php 
- require_once "../DB.php";
+require_once "../DB.php";
 require_once "../config.php";
+require_once "../controllers/functions.php";
+require_once "../controllers/helpers.php";
 
 if(empty($_SESSION["customer_id"])){
     $redirectTo = APP_PATH."users/auth/login.php";
     header("Location: $redirectTo");
     exit();
 }
+
+$posts = selectMultipleData("article","*","","created_at","DESC");
 
 ?>
 
@@ -58,6 +62,7 @@ if(empty($_SESSION["customer_id"])){
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
+                                <?php if(!empty($posts)){ ?>
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
@@ -71,24 +76,23 @@ if(empty($_SESSION["customer_id"])){
                                         </thead>
 
                                         <tbody>
+                                        <?php foreach ($posts as $key => $value) {?>
                                             <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>61</td>
-                                                <td>2011/04/25</td>
-                                                <td>$320,800</td>
+                                                <td><?=$key?></td>
+                                                <td><?=ucwords($value->title)?></td>
+                                                <td><?=$value->likes?></td>
+                                                <td><?=$value->views?></td>
+                                                <td><a href="<?=APP_PATH?>users/edit-post.php?id=<?=$value->id?>">Edit</a></td>
+                                                <td><?=date("d M, Y",strtotime($value->created_at))?></td>
                                             </tr>
-
+                                         <?php   } ?>
                                        </tbody>
                                     </table>
+                                <?php }?>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
-                    <!-- tables -->
 
 
 
