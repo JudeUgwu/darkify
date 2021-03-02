@@ -38,6 +38,7 @@ function selectMultipleData($tableName,$colums = "*", $where = "",$orderBy = "",
   $where = !empty($where) ? " WHERE ".$where : $where;
   $orderBy = !empty($orderBy) ? " ORDER BY ".$orderBy." $order" : $orderBy;
   $sql = "SELECT $colums FROM $tableName $where  $orderBy $limit";
+
   $result = $conn->query($sql);
   if($result->num_rows > 0){
     $data = [];
@@ -60,6 +61,22 @@ function addPost($data)
     extract($data);
     global $conn;
     $sql = "INSERT INTO article(`title`,`content`,`image`,`user_id`) VALUES('$title','$content','$image','$user_id')";
+    $result = $conn->query($sql);
+    if ($result) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+/**
+ * @desc This function is used to radd a [post]
+ */
+function addComment($data)
+{
+    extract($data);
+    global $conn;
+    $sql = "INSERT INTO comments(`comment`,`user_id`,`post_id`) VALUES('$comment','$user_id','$post_id')";
     $result = $conn->query($sql);
     if ($result) {
         return true;

@@ -9,8 +9,11 @@
 		header("Location: 404.php");
 		exit();
 	}
-
+	
+	
 	$post = selectSingleData('article',"*","`id`={$post_id}");
+
+
 
   
 	if(empty($post)){
@@ -21,6 +24,9 @@
 	$post = (object) $post;
 	$author = (object) selectSingleData('users',"*","`id`={$post->user_id}");
 	$relatedPosts  = selectMultipleData("article","*","`category_id`='{$post->category_id}' AND id != '{$post->id}'");
+	$comments  = selectMultipleData("comments","*","`post_id`='{$post->id}'","created_at","ASC");
+
+
 
 
 
@@ -176,142 +182,9 @@
 					<?php } ?>
 
 					<!--~./End related posts block ~-->
+					<?php require_once "includes/comments.php"; ?>
 
-					<div id="comments" class="comments-area">
-						<div class="comments-main-content">
-							<div class="row">
-								<div class="col-md-12">
-									<h3 class="comments-title">04 Comments</h3>
-									<!--/.comments-title-->
-								</div>
-								<!--/.col-md-12-->
-							</div>
-							<!--/.row-->
 
-							<div class="row">
-								<div class="col-md-12">
-									<ol class="comment-list">
-										<li class="comment">
-											<div class="comment-body">
-												<div class="comment-meta">
-													<div class="comment-author vcard">
-														<div class="author-img">
-															<img alt="Maria" src="assets/images/comments/1.png" class="avatar photo">
-														</div>
-													</div>
-													<!--/.comment-author-->
-													<div class="comment-metadata"><b class="author">Zhon Andarson</b>
-													</div>
-													<!--/.comment-metadata-->
-												</div>
-												<!--/.comment-meta-->
-												<div class="comment-details">
-													<div class="comment-content">
-														<p>Coding is used in almost all aspects of life and work now, be it directly or indirectly.
-															It’s not just for companies in the tech sector. “An increasing number of businesses rely
-															on computer code,</p>
-													</div>
-													<!--/.comment-content-->
-													<div class="comment-footer">
-														<span class="date">10:35pm, 27 jan 2015.</span>
-														<a href="#" class="comment-reply-link">Reply</a>
-													</div>
-												</div><!-- /.comment-details-->
-											</div>
-											<!--/.comment-body-->
-											<ol class="children">
-												<li class="comment">
-													<div class="comment-body">
-														<div class="comment-meta">
-															<div class="comment-author vcard">
-																<div class="author-img">
-																	<img alt="avatar" src="assets/images/comments/2.png" class="avatar photo">
-																</div>
-															</div>
-															<!--/.comment-author-->
-															<div class="comment-metadata"><b class="author">Andro Smith Doe</b>
-															</div>
-															<!--/.comment-metadata-->
-														</div>
-														<!--/.comment-meta-->
-														<div class="comment-details">
-															<div class="comment-content">
-																<p>Coding is used in almost all aspects of life and work now, be it directly or
-																	indirectly. It’s not just for companies in the tech sector. “An increasing number of
-																	businesses rely on computer code,</p>
-															</div>
-															<!--/.comment-content-->
-															<div class="comment-footer">
-																<span class="date">10:35pm, 27 jan 2015.</span>
-																<a href="#" class="comment-reply-link">Reply</a>
-															</div>
-														</div><!-- /.comment-details-->
-													</div>
-													<!--/.comment-body-->
-												</li>
-												<!--/.comment-->
-											</ol>
-											<!--/.children-->
-										</li>
-										<!--/.comment-body-->
-										<li class="comment">
-											<div class="comment-body">
-												<div class="comment-meta">
-													<div class="comment-author vcard">
-														<div class="author-img">
-															<img alt="" src="assets/images/comments/2.png" class="avatar photo">
-														</div>
-													</div>
-													<!--/.comment-author-->
-													<div class="comment-metadata"><b class="author">Heas lins</b>
-													</div>
-													<!--/.comment-metadata-->
-												</div>
-												<!--/.comment-meta-->
-												<div class="comment-details">
-													<div class="comment-content">
-														<p>Coding is used in almost all aspects of life and work now, be it directly or indirectly.
-															It’s not just for companies in the tech sector. “An increasing number of businesses rely
-															on computer code, </p>
-													</div>
-													<!--/.comment-content-->
-													<div class="comment-footer">
-														<span class="date">10:35pm, 27 jan 2015.</span>
-														<a href="#" class="comment-reply-link">Reply</a>
-													</div>
-												</div><!-- /.comment-details-->
-											</div>
-											<!--/.comment-body-->
-										</li>
-										<!--/.comment-body-->
-									</ol>
-									<!--/.comment-list-->
-								</div>
-								<!--/.col-md-12-->
-							</div>
-							<!--/.row-->
-						</div><!-- /.comments-main-content -->
-					</div><!-- /.comments-area -->
-
-					<div class="comment-respond">
-						<form action="#" class="comment-form">
-							<h3 class="comment-reply-title">Leave your comment</h3>
-							<div class="row">
-								<div class="col-lg-6 col-md-6">
-									<input type="text" class="form-control" placeholder="Enter your name">
-								</div><!-- /.col-lg-6 -->
-								<div class="col-lg-6 col-md-6">
-									<input type="email" class="form-control" placeholder="Your Email">
-								</div><!-- /.col-lg-6 -->
-								<div class="col-12">
-									<textarea class="form-control" rows="4" cols="50" placeholder="Your message here"></textarea>
-								</div><!-- /.col-12 -->
-								<div class="form-submit clearfix">
-									<button class="btn btn-default">Post <i class="fas fa-arrow-right"></i></button>
-								</div><!-- /.subimt -->
-							</div><!-- /.row -->
-						</form>
-					</div>
 				</div>
 			</div><!--  /.blog-latest-items -->
 		</div>

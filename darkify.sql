@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 26, 2021 at 12:21 PM
+-- Generation Time: Mar 02, 2021 at 11:06 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.1
 
@@ -99,10 +99,27 @@ CREATE TABLE `comments` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `parent_id` int(11) NOT NULL DEFAULT 0,
+  `post_id` int(11) NOT NULL DEFAULT 1,
   `comment` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `published_status` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`id`, `user_id`, `parent_id`, `post_id`, `comment`, `created_at`, `published_status`) VALUES
+(1, 1, 0, 3, 'what a wonderful post', '2021-03-02 09:31:39', 1),
+(2, 1, 0, 3, 'i just hate being broke', '2021-03-02 09:32:07', 1),
+(3, 1, 0, 3, 'what a wonderful day', '2021-03-02 09:35:34', 1),
+(4, 1, 0, 1, 'i want to make money', '2021-03-02 09:37:55', 1),
+(5, 1, 0, 7, 'jude forgot post', '2021-03-02 09:43:00', 1),
+(6, 1, 0, 7, 'what a wondeful week', '2021-03-02 09:57:17', 1),
+(7, 1, 0, 3, 'never too easy to survive', '2021-03-02 09:59:14', 1),
+(8, 1, 0, 5, 'arr they kindnapped her :)', '2021-03-02 09:59:53', 1),
+(9, 1, 0, 6, 'lol see this guys face', '2021-03-02 10:00:25', 1),
+(10, 1, 0, 4, 'jude is avvoiding long code', '2021-03-02 10:02:16', 1);
 
 -- --------------------------------------------------------
 
@@ -192,7 +209,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users`

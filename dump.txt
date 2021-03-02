@@ -1,0 +1,32 @@
+<ol class="children">
+              <li class="comment">
+                <div class="comment-body">
+                  <div class="comment-meta">
+                    <div class="comment-author vcard">
+                      <div class="author-img">
+                        <img alt="avatar" src="assets/images/comments/2.png" class="avatar photo">
+                      </div>
+                    </div>
+                    <!--/.comment-author-->
+                    <div class="comment-metadata"><b class="author">Andro Smith Doe</b>
+                    </div>
+                    <!--/.comment-metadata-->
+                  </div>
+                  <!--/.comment-meta-->
+                  <div class="comment-details">
+                    <div class="comment-content">
+                      <p>Coding is used in almost adssdsdsdll aspects of life and work now, be it directly or
+                        indirectly. It’s not just for companies in the tech sector. “An increasing number of
+                        businesses rely on computer code,</p>
+                    </div>
+                    <!--/.comment-content-->
+                    <div class="comment-footer">
+                      <span class="date">10:35pm, 27 jan 2015.</span>
+                      <a href="#" class="comment-reply-link">Reply</a>
+                    </div>
+                  </div><!-- /.comment-details-->
+                </div>
+                <!--/.comment-body-->
+              </li>
+              <!--/.comment-->
+            </ol>

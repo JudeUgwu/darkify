@@ -11,3 +11,4 @@
 	<script src="assets/js/owl.carousel.min.js"></script>
 	<script src="assets/js/scrolla.jquery.min.js"></script>
 	<script src="assets/js/main.js"></script>
+	<script src="assets/js/app.js"></script>
