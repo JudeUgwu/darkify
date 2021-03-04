@@ -10,11 +10,9 @@
 		exit();
 	}
 	
+	updateReads(["id"=>$post_id]);
 	
 	$post = selectSingleData('article',"*","`id`={$post_id}");
-
-
-
   
 	if(empty($post)){
 		header("Location: 404.php");
@@ -25,9 +23,6 @@
 	$author = (object) selectSingleData('users',"*","`id`={$post->user_id}");
 	$relatedPosts  = selectMultipleData("article","*","`category_id`='{$post->category_id}' AND id != '{$post->id}'");
 	$comments  = selectMultipleData("comments","*","`post_id`='{$post->id}'","created_at","ASC");
-
-
-
 
 
 ?>
@@ -80,6 +75,11 @@
 										<!--./ entry-date -->
 										<div class="entry-date">
 											On <span> <?=date("D M, Y", strtotime($post->created_at))?> </span>
+											<br>
+										</div>
+										<div>
+										<i class="fa fa-eye" aria-hidden="true"></i>
+										<span> <?=$post->views?></span>
 										</div>
 										<!--./ entry-date -->
 									</div>
@@ -102,6 +102,12 @@
 				</article><!-- /.post -->
 
 				<div class="container">
+				<div class="row ">
+									<div class="col-md-12 text-center">
+									<i data-url="<?=APP_PATH?>controllers/processor.php"  data-post-id="<?=$post->id?>"  class="fa fa-thumbs-up likes" style="font-size:20px;" aria-hidden="true"></i>
+									<span><?=$post->likes?></span>
+									</div>
+									</div>
 					<div class="row justify-content-center">
 						<div class="col-lg-5">
 							<!--~~~~~ Start Author Info ~~~~~-->
@@ -160,6 +166,7 @@
 										<!--./ entry-title -->
 									</div>
 									<!--./ content-entry-wrap -->
+
 									<div class="entry-user">
 										<div class="thumb">
 											<img src="<?=$author->image?>" alt="Thumb" />

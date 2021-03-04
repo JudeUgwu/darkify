@@ -103,6 +103,38 @@ function updatePost($data)
 }
 
 
+  /**
+ * @desc This function is used to radd a [post]
+ */
+function updateLikes($data)
+{
+  extract($data);
+  global $conn;
+   $sql = "UPDATE article SET `likes` = `likes`+'1'  WHERE `id`='$id'";
+   $result = $conn->query($sql);
+   if($result){
+    return true;
+  }else{
+    return false;
+  }
+}
+
+  /**
+ * @desc This function is used to radd a [post]
+ */
+function updateReads($data)
+{
+  extract($data);
+  global $conn;
+   $sql = "UPDATE article SET `views` = `views`+'1'  WHERE `id`='$id'";
+   $result = $conn->query($sql);
+   if($result){
+    return true;
+  }else{
+    return false;
+  }
+}
+
 
 
  

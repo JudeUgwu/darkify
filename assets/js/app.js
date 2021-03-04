@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+  // This is for comments
   $(".comment-form").submit(function(event){
       event.preventDefault();
       $form = $(this);
@@ -38,4 +39,24 @@ $(document).ready(function(){
       
 
   })
+
+
+  // This is for likes
+  $(".likes").click(function(event){
+    event.preventDefault();
+    $icon = $(this);
+    $postId = $(this).attr("data-post-id");
+    $url = $(this).attr("data-url");
+    $object = {likes:true,"post_id":$postId,"url":$url}
+    $.ajax({
+      method:"POST",
+      url:$url,
+      data:$object,
+      success:function($response){
+        $icon.toggleClass("text-primary");
+        $icon.next("span").html($response);
+      }
+    })
+  })
+
 })

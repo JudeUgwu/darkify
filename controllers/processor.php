@@ -21,3 +21,14 @@
      echo "error";
    }
  }
+
+
+
+ if(!empty($_POST["likes"])){
+  
+   $formData["id"] = sanitize($_POST['post_id']);
+   $result = updateLikes($formData);
+   $post = (object) selectSingleData("article","likes","`id`='{$formData["id"]}'");
+   echo $post->likes;
+
+ }
